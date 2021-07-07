@@ -8,7 +8,7 @@ exports.destroy = (req,res)=>{
             msg: "pls select content"
         })
     }else{
-        dbtodo.findOneAndUpdate({_id:req.decoded.id},{$set:{status: -1}},(err,data)=>{
+        dbtodo.findOneAndUpdate({content:req.body.content},{$set:{status:-1}}, {new: true},(err,data)=>{
             if(err)
             {
                 res.json({
